@@ -3,7 +3,7 @@
 /* Controllers */
 
 angular.module('ptStats.controllers', ['ptStats.services']).
-  controller('ptWhoamICtrl', [ '$scope', 'Base64', function($scope, $Base64){
+  controller('ptWhoamICtrl', [ '$scope', 'Base64', '$http', function($scope, $Base64, $http){
     $scope.person = {};
     $scope.username = '';
     $scope.password = '';
@@ -14,7 +14,9 @@ angular.module('ptStats.controllers', ['ptStats.services']).
         //a person object whose token is used for all subsequent requests.
         $scope.username = angular.element('#username').val();
         $scope.password = angular.element('#password').val();
+
         if( $scope.username == '' || $scope.password == '' ) { return; }
+
         var encoded = $Base64.encode($scope.username + ':' + $scope.password);
         $http.defaults.headers.common.Authorization = 'Basic ' + encoded;
         $http({
