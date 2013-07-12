@@ -19,10 +19,21 @@ angular.module('ptStats.controllers', ['ptStats.services']).
 
         var encoded = $Base64.encode($scope.username + ':' + $scope.password);
         $http.defaults.headers.common.Authorization = 'Basic ' + encoded;
-        $http({
-            method: 'GET', 
-            url: 'https://www.pivotaltracker.com/services/v4/me', 
-            withCredentials: true
+        var promise = $http.jsonp('https://www.pivotaltracker.com/services/v4/me',
+            {
+                crossDomain: true,
+                dataType: "jsonp",
+                withCredentials: true,
+                transformResponse: function(data) {
+                    var x2js = new X2JS();
+                    var json = x2js.xml_str2json( data );
+                    return json;
+                }
+            }
+        ).success(function(data, text, xhqr){
+            alert(data);
+            $scope.person = data;
         });
+        console.log(promise);
     };
   }]);

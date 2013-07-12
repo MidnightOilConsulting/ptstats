@@ -6,5 +6,5 @@ angular.module('ptStats', [
         'ptStats.filters', 
         'ptStats.services', 
         'ptStats.directives', 
-        'ptStats.controllers']
-);
+        'ptStats.controllers'
+]);
