@@ -2,19 +2,23 @@
 <html lang="en" ng-app="ptStats">
 <head>
   <meta charset="utf-8">
-  <title>get Business Intelligence out of Pivotal Tracker</title>
+  <title>Get Business Intelligence out of Pivotal Tracker</title>
   <link rel="stylesheet" href="css/app.css"/>
 </head>
-<body ng-controller="ptAPICtrl">
-{{ users }}
-  <!-- In production use:
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
-  -->
-  <script src="lib/angular/angular.js"></script>
-  <script src="js/app.js"></script>
-  <script src="js/services.js"></script>
-  <script src="js/controllers.js"></script>
-  <script src="js/filters.js"></script>
-  <script src="js/directives.js"></script>
+<body>
+    <div>
+        <form id="idForm" ng-controller="ptWhoamICtrl">
+            <input id="username" type="text" /> <br />
+            <input id="password" type="password" /> <br />
+            <input id="submit" type="button" value="Identify Yourself" ng-click="identify($('#username').val(), angular.element('#password').val())" />
+        </form>
+    </div>
+    <script src="lib/jquery/jquery-2.0.3-min.js"></script>
+    <script src="lib/angular/angular.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/filters.js"></script>
+    <script src="js/directives.js"></script>
 </body>
 </html>
