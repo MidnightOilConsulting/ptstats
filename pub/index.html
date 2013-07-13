@@ -5,16 +5,16 @@
   <title>Get Business Intelligence out of Pivotal Tracker</title>
   <link rel="stylesheet" href="css/app.css"/>
 </head>
-<body>
+<body ng-controller="ptWhoamICtrl">
     <div>
-        <form id="idForm" ng-controller="ptWhoamICtrl">
+        <form id="idForm">
             <input id="username" type="text" /> <br />
             <input id="password" type="password" /> <br />
             <input id="submit" type="button" value="Identify Yourself" ng-click="identify()" />
         </form>
     </div>
     You are identified as {{person.name}}<br>
-    Your token is {{person.token}}<br>
+    Your token is {{person.token.guid}}<br>
     <script src="lib/jquery/jquery-2.0.3-min.js"></script>
     <script src="lib/x2js-v1.0.11/xml2json.js"></script>
     <script src="lib/angular/angular.js"></script>
