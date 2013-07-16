@@ -15,6 +15,24 @@
     </div>
     You are identified as {{person.name}}<br>
     Your token is {{person.token.guid}}<br>
+
+    <div id="projects">
+        <input id="getProjectsButton" type="button" value="List Projects" ng-click="getProjects(person.token.guid)" /> 
+        <table>
+            <tr ng-repeat="project in projects">
+                <td>
+                    {{project.name}}<br />
+                    <table>
+                        <tr ng-repeat="member in project.memberships.membership_asArray">
+                            <td>
+                                {{member.member.person.name}}
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
     <script src="lib/jquery/jquery-2.0.3-min.js"></script>
     <script src="lib/x2js-v1.0.11/xml2json.js"></script>
     <script src="lib/angular/angular.js"></script>
