@@ -1,0 +1,9 @@
+; Configuration Sample File for ptMiddleware app
+; Create config.ini file based on this sample
+
+[database]
+adapter = "pgsql"
+host    = "myHost"
+dbName  = "myDatabase"
+user    = "myUserName"
+pass    = "myPassword"
