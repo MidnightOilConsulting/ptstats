@@ -11,7 +11,7 @@ angular.module('ptStats.controllers', ['ptStats.services']).
 
         if( $scope.username == '' || $scope.password == '' ) { return; }
 
-        $http.post('/corsproxy.php', {url:'https://www.pivotaltracker.com/services/v4/me',username:$scope.username, password:$scope.password},
+        $http.post('/corsproxy', {url:'https://www.pivotaltracker.com/services/v4/me',username:$scope.username, password:$scope.password},
             {
                 transformResponse: function(data) {
                     var x2js = new X2JS();
@@ -25,7 +25,7 @@ angular.module('ptStats.controllers', ['ptStats.services']).
     };
 
     $scope.getProjects = function(token){
-        $http.post('/corsproxy.php', {url:'http://www.pivotaltracker.com/services/v4/projects', token:token},
+        $http.post('/corsproxy', {url:'http://www.pivotaltracker.com/services/v4/projects', token:token},
             {
                 transformResponse: function(data) {
                     var x2js = new X2JS();
